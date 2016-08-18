@@ -21,7 +21,7 @@ function getAssets (req, result, next) {
             code: bos.assets[i].code,
             small: bos.assets[i].assets[0].urlTiny,
             med: bos.assets[i].assets[0].urlBig,
-            normal: bos.assets[i].assets[0].url
+            featured: bos.assets[i].assets[0].url
           }
         data.push(obj)
         }
