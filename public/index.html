@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- <html ng-app="myApp"> -->
 <head>
   <meta charset="UTF-8">
-  <title>GA - The Bosco</title>
-  <!-- <script type="text/javascript" src="https://opensource.keycdn.com/angularjs/1.5.8/angular.min.js
-"></script> -->
+  <title>General Assembly Holiday Party</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+  <script src="/js/app.js"></script>
 </head>
-  <body>
+  <body ng-app="myApp" ng-controller="mainController">
     <div class="header">
       <div class="container">
         <h1>The Bosco and GA</h1>
       </div>
     </div>
 
-    <!-- <div class="main" ng-controller="MainController">
+    <div class="main">
       <div class="container">
-
-        <h1>{{ title }}</h1> -->
+        <ul class="images">
+          <li ng-repeat="image in images" class="thumbnail">
+            <a href="#">
+              <img ng-src="{{image.normal}}" alt="{{image.code}}" />
+            </a>
+          </li>
+        </ul>
 
       </div>
     </div>

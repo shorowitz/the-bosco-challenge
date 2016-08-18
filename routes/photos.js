@@ -8,7 +8,7 @@ dotenv.load();
 
 photos.get('/', getAssets, (req, res) => {
   console.log('got photos')
-  res.json(res.data)
+  res.send(res.data)
 })
 
 function getAssets (req, result, next) {
