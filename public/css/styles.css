@@ -189,6 +189,10 @@ a.button {
   margin-top: 0px;
 }
 
+.lightbox a {
+  text-decoration: none;
+}
+
 .lightbox:target {
 	outline: none;
 	display: block;

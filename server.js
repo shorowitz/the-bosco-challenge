@@ -24,5 +24,5 @@ app.get('*', (req, res) => {
 })
 
 app.listen(_port, function(){
-  console.log('Serving running on ' +_port);
+  console.log('Serving on ' +_port);
 });
