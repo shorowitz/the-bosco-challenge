@@ -8,9 +8,6 @@ const logger = require('morgan');
 const app = express();
 const _port = process.argv[2] || process.env.PORT || 3000;
 
-const dotenv = require('dotenv');
-dotenv.load();
-
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 

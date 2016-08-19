@@ -3,8 +3,6 @@
 const express = require('express');
 const photos = express.Router();
 const request = require('request');
-const dotenv = require('dotenv');
-dotenv.load();
 
 photos.get('/', getAssets, (req, res) => {
   console.log('got photos')

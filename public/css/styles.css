@@ -190,14 +190,9 @@ a.button {
 }
 
 .lightbox:target {
-	/** Remove default browser outline */
 	outline: none;
-
-	/** Unhide lightbox **/
 	display: block;
 }
-
-/* Styles the close link, adds the slide down transition */
 
 a.lightbox-close {
 display: block;
@@ -216,8 +211,6 @@ right: 0;
 transition: .5s ease-in-out;
 }
 
-/* Provides part of the "X" to eliminate an image from the close link */
-
 a.lightbox-close:before {
 content: "";
 display: block;
@@ -232,8 +225,6 @@ top:10px;
 -o-transform:rotate(45deg);
 transform:rotate(45deg);
 }
-
-/* Provides part of the "X" to eliminate an image from the close link */
 
 a.lightbox-close:after {
 content: "";
@@ -291,7 +282,4 @@ top: 0px;
   .lightbox img {
     margin-top:40%;
   }
-}
-
-
 }
