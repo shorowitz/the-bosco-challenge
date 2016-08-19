@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>General Assembly Holiday Party</title>
+  <link rel="stylesheet" href="/css/styles.css"></link>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+</head>
+  <body ng-app="myApp" ng-controller="mainController">
+
+    <div class="header" id="header">
+      <div class="nav-item lrgLogo">
+        <img src="/images/ga-horizontal-white.png"/>
+      </div>
+      <div class="nav-item lrgTitle">#GAHOLIDAYPARTY</div>
+      <div class="nav-item lrgTitle">NYC HOLIDAY PARTY 2014</div>
+      <div class="nav-item smlTitle">December 12, 2014</div>
+    </div>
+
+
+      <div class="grid">
+          <div class="grid-item" ng-repeat="image in images">
+              <img ng-src="{{image.featured}}" alt="{{image.code}}" class="thumb"/>
+              <div class="view">
+                  <a class="button" href="#{{image.code}}">View</a>
+              </div>
+              <div id="{{image.code}}" class="lightbox">
+                <img ng-src="{{image.featured}}" alt="{{image.code}}"/>
+                <a class="lightbox-close" href="#stay_here"></a>
+                <h2>Image ID: {{image.code}}</h2>
+                <div class="social">
+                    <img src="https://s3.amazonaws.com/thebosco/angular-assets/images/icons/instagram-icon-no-outline.png"/>
+                  <img src="https://s3.amazonaws.com/thebosco/angular-assets/images/icons/facebook-icon-no-outline.png">
+                  <a href="https://twitter.com/intent/tweet">
+                    <img src="https://s3.amazonaws.com/thebosco/angular-assets/images/icons/twitter-icon-no-outline.png">
+                  </a>
+                </div>
+          </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-text">
+          <p>Thanks for checking out GA's 2014 Holiday Party</p>
+          <p>Subscribe here to recieve updates:</p>
+          <p>
+            <input type="email" placeholder="Enter your email address" class="email"/></label>
+            <a href="#success" class="button" onClick="alert('Thanks for subscribing!')">Submit</a>
+          </p>
+        </div>
+      </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/scroll.js"></script>
+
+  </body>
+</html>

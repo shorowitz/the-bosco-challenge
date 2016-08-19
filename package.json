@@ -1,0 +1,27 @@
+{
+  "name": "the-bosco-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shorowitz/the-bosco-challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shorowitz/the-bosco-challenge/issues"
+  },
+  "homepage": "https://github.com/shorowitz/the-bosco-challenge#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-router": "0.0.1",
+    "morgan": "^1.7.0",
+    "path": "^0.12.7"
+  }
+}
