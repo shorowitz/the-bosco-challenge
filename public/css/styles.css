@@ -35,23 +35,243 @@ li {
 }
 
 .grid {
-  margin: 0em;
-  text-align: center;
-  -webkit-columns: 4;
-  -moz-columns: 4;
-  columns: 4;
-  -webkit-column-gap: 0em;
-  -moz-column-gap: 0em;
-  column-gap: 0em;
+  font-size: 0;
 }
 
-a.ng-scope {
-  height: 0px;
-  padding: 0px;
-  margin: 0px;
-  text-decoration: none;
+.grid-item {
+  display:inline-block;
+  width: 25%;
+  vertical-align: top;
+  float: left;
+  transition: all .2s ease-in-out;
+  position: relative;
 }
 
-.grid-item img{
-  width:100%;
+.grid-item:nth-child(13n+1) {
+  width:50%;
+  vertical-align: top;
+  display:inline-block;
+  transition: all .2s ease-in-out;
+  position: relative;
+}
+
+.grid-item:nth-of-type(2n) {
+  float: right;
+}
+
+.grid-item .med {
+  width: 100%;
+  vertical-align: top;
+}
+
+.grid-item .feat {
+  width: 100%;
+  vertical-align: top;
+}
+
+/*.grid-item:hover {
+ transform: scale(1.1);
+}*/
+
+.view {
+  position:absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.button {
+    font-size: 14px;
+    /*margin-top: -5px;
+    padding: 5px 7px;*/
+}
+a.button {
+    border-radius: 3px 3px 3px 3px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "proxima-nova-1","proxima-nova-2",Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    line-height: 1;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.grid-item .view {
+  display: none;
+}
+
+.grid-item:hover .view {
+ display: inline;
+}
+
+/*.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 10px;
+  background: #FFFFFF;
+  border-radius: 2px;
+  width: 50%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  color: #636363;
+}
+
+.popup .imageDetail {
+  max-height: 100%;
+  overflow: auto;
+}*/
+
+
+.lightbox {
+	/** Default lightbox to hidden */
+	display: none;
+
+	/** Position and style */
+	position: fixed;
+	z-index: 999;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,1);
+}
+
+.lightbox img {
+	/** Pad the lightbox image */
+	max-width: 90%;
+	/*max-height: 80%;*/
+	margin-top: 2%;
+  overflow: auto;
+}
+
+.lightbox:target {
+	/** Remove default browser outline */
+	outline: none;
+
+	/** Unhide lightbox **/
+	display: block;
+}
+
+/*.lightbox {
+position: fixed;
+top: -100%;
+width: 100%;
+background: rgba(0,0,0,.7);
+width: 100%;
+opacity: 0;
+-webkit-transition: opacity .5s ease-in-out;
+-moz-transition: opacity .5s ease-in-out;
+-o-transition: opacity .5s ease-in-out;
+transition: opacity .5s ease-in-out;
+overflow: hidden;
+}
+
+/* Styles the lightbox image, centers it vertically and horizontally, adds the zoom-in transition and makes it responsive using a combination of margin and absolute positioning */
+
+/*.lightbox img {
+margin: auto;
+position: absolute;
+top: 0;
+left:0;
+right:0;
+bottom: 0;
+max-height: 0%;
+max-width: 0%;
+border: 3px solid white;
+box-shadow: 0px 0px 8px rgba(0,0,0,.3);
+box-sizing: border-box;
+-webkit-transition: .5s ease-in-out;
+-moz-transition: .5s ease-in-out;
+-o-transition: .5s ease-in-out;
+transition: .5s ease-in-out;
+}*/
+
+/* Styles the close link, adds the slide down transition */
+
+a.lightbox-close {
+display: block;
+width:50px;
+height:50px;
+box-sizing: border-box;
+background: white;
+color: black;
+text-decoration: none;
+position: absolute;
+top: -80px;
+right: 0;
+-webkit-transition: .5s ease-in-out;
+-moz-transition: .5s ease-in-out;
+-o-transition: .5s ease-in-out;
+transition: .5s ease-in-out;
+}
+
+/* Provides part of the "X" to eliminate an image from the close link */
+
+a.lightbox-close:before {
+content: "";
+display: block;
+height: 30px;
+width: 1px;
+background: black;
+position: absolute;
+left: 26px;
+top:10px;
+-webkit-transform:rotate(45deg);
+-moz-transform:rotate(45deg);
+-o-transform:rotate(45deg);
+transform:rotate(45deg);
+}
+
+/* Provides part of the "X" to eliminate an image from the close link */
+
+a.lightbox-close:after {
+content: "";
+display: block;
+height: 30px;
+width: 1px;
+background: black;
+position: absolute;
+left: 26px;
+top:10px;
+-webkit-transform:rotate(-45deg);
+-moz-transform:rotate(-45deg);
+-o-transform:rotate(-45deg);
+transform:rotate(-45deg);
+}
+
+
+
+
+.lightbox:target a.lightbox-close {
+top: 0px;
 }

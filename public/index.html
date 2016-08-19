@@ -22,17 +22,26 @@
     <div class="main">
       <div class="grid">
           <div class="grid-item" ng-repeat="image in images">
-            <a ng-if="(($index + 1) % 5)" href="#">
-              <img ng-src="{{image.med}}" alt="{{image.code}}" />
-            </a>
-            <a ng-if="!(($index + 1) % 5)" href="#">
-              <img ng-src="{{image.featured}}" alt="{{image.code}}" />
-            </a>
+              <img ng-src="{{image.med}}" alt="{{image.code}}" class="med" ng-click="ChangeView(image.featured, image.code)"/>
+              <!-- <img ng-if="!(($index + 1) % 5)" ng-src="{{image.featured}}" alt="{{image.code}}" class="feat" ng-click="ChangeView(image.featured, image.code)"/> -->
+              <div class="view">
+                  <a class="button" href="#{{image.code}}">View</a>
+              </div>
+              <div id="{{image.code}}" class="lightbox">
+                <div class="popup">
+                  <a class="close" href="#">&times;</a>
+                    <div class="imageDetail">
+                      <img ng-src="{{image.featured}}" alt="{{image.code}}"/>
+                      <p>IMAGE ID: {{image.code}}</p>
+                      <a class="lightbox-close" href="#"></a>
+                   </div>
+                </div>
+            </div>
+
+
           </div>
       </div>
+
     </div>
-
-
-  <!-- <script charset="UTF-8" src="js/bundle.js"></script> -->
 </body>
 </html>

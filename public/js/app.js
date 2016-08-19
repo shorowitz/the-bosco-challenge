@@ -8,4 +8,5 @@ app.controller('mainController', ['$scope', '$http', function($scope, $http) {
       .error(function(data) {
           console.log('Error: ' + data);
       });
-}]);
+    }])
+// }]);
