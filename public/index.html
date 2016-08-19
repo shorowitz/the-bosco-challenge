@@ -4,44 +4,73 @@
   <meta charset="UTF-8">
   <title>General Assembly Holiday Party</title>
   <link rel="stylesheet" href="/css/styles.css"></link>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
-  <script src="/js/app.js"></script>
 </head>
   <body ng-app="myApp" ng-controller="mainController">
 
-    <div class="header">
+    <div class="header" id="header">
       <div class="nav-item lrgLogo">
         <img src="/images/ga-horizontal-white.png"/>
       </div>
-      <div class="nav-item lrgTitle">#AFESTIVEASSEMBLY GA NYC</div>
-      <div class="nav-item lrgTitle">HOLIDAY PARTY 2015</div>
-      <div class="nav-item date">December 16, 2015</div>
+      <div class="nav-item lrgTitle">#GAHOLIDAYPARTY</div>
+      <div class="nav-item lrgTitle">NYC HOLIDAY PARTY 2014</div>
+      <div class="nav-item smlTitle">December 12, 2014</div>
     </div>
 
-    <div class="main">
+
       <div class="grid">
           <div class="grid-item" ng-repeat="image in images">
-              <img ng-src="{{image.med}}" alt="{{image.code}}" class="med" ng-click="ChangeView(image.featured, image.code)"/>
-              <!-- <img ng-if="!(($index + 1) % 5)" ng-src="{{image.featured}}" alt="{{image.code}}" class="feat" ng-click="ChangeView(image.featured, image.code)"/> -->
+              <img ng-src="{{image.featured}}" alt="{{image.code}}" class="thumb"/>
               <div class="view">
                   <a class="button" href="#{{image.code}}">View</a>
               </div>
               <div id="{{image.code}}" class="lightbox">
-                <div class="popup">
-                  <a class="close" href="#">&times;</a>
-                    <div class="imageDetail">
-                      <img ng-src="{{image.featured}}" alt="{{image.code}}"/>
-                      <p>IMAGE ID: {{image.code}}</p>
-                      <a class="lightbox-close" href="#"></a>
-                   </div>
+                <img ng-src="{{image.featured}}" alt="{{image.code}}"/>
+                <a class="lightbox-close" href="#stay_here"></a>
+                <h2>Image ID: {{image.code}}</h2>
+                <div class="social">
+                    <img src="https://s3.amazonaws.com/thebosco/angular-assets/images/icons/instagram-icon-no-outline.png"/>
+                  <img src="https://s3.amazonaws.com/thebosco/angular-assets/images/icons/facebook-icon-no-outline.png">
+                  <a href="https://twitter.com/intent/tweet">
+                    <img src="https://s3.amazonaws.com/thebosco/angular-assets/images/icons/twitter-icon-no-outline.png">
+                  </a>
                 </div>
-            </div>
-
-
           </div>
       </div>
 
-    </div>
-</body>
+      <div class="footer">
+        <div class="footer-text">
+          <p>Thanks for checking out GA's 2014 Holiday Party</p>
+          <p>Subscribe here to recieve updates:</p>
+          <p>
+            <input type="email" placeholder="Enter your email address" class="email"/></label>
+            <a href="#success" class="button" onClick="alert('Thanks for subscribing!')">Submit</a>
+          </p>
+        </div>
+      </div>
+
+
+
+  <script src="/js/app.js"></script>
+  <script>
+  $(document).ready(function(){
+ var shrinkHeader = 300;
+  $(window).scroll(function() {
+    console.log('getting here')
+    var scroll = getCurrentScroll();
+      if ( scroll >= shrinkHeader ) {
+           $('.header').addClass('shrink');
+        }
+        else {
+            $('.header').removeClass('shrink');
+        }
+  });
+function getCurrentScroll() {
+    return window.pageYOffset || document.documentElement.scrollTop;
+    }
+})</script>
+
+  </body>
 </html>

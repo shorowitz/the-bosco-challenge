@@ -1,41 +1,98 @@
 body {
   margin: 0 auto;
-  font-family: 'Open Sans', sans-serif;
-}
-
-li {
-  list-style: none;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .header {
-  margin: 0 auto;
   background-image: url('../images/chalkboard.jpg');
   background-size: cover;
   text-align: center;
-  color: white;
+  color: #ffffff;
+  text-align: center;
+  width: 100%;
+  height: 250px;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  -webkit-transition: height 0.3s;
+  -moz-transition: height 0.3s;
+  transition: height 0.3s;
+}
+
+.header.shrink {
+  height: 100px;
+  -webkit-transition: height 0.3s;
+  -moz-transition: height 0.3s;
+  transition: height 0.3s;
 }
 
 .lrgLogo {
   margin: 0 auto;
   padding: 30px 5px 20px 5px;
   max-width:600px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.header.shrink .lrgLogo{
+  float: left;
+  margin-left: 15px;
+  max-width: 350px;
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  transition: all 0.1s;
 }
 
 .lrgLogo img {
   text-align: center;
   width: 100%;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+
 }
 
 .lrgTitle {
-  font-size: 24px;
+  font-size: 28px;
+  -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   transition: all 0.3s;
 }
 
-.date {
-  padding-bottom: 10px;
+.header.shrink .lrgTitle{
+    display: inline-block;
+    float: right;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-right: 25px;
+    text-align: right;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.smlTitle {
+  padding: 10px 10px 40px 10px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.header.shrink .smlTitle {
+  display: inline-block;
+  float: right;
+  margin-top: 40px;
+  margin-right: -250px;
+  text-align: right;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .grid {
-  font-size: 0;
+  margin-top: 250px;
+  height:2000px;
 }
 
 .grid-item {
@@ -51,51 +108,45 @@ li {
   width:50%;
   vertical-align: top;
   display:inline-block;
-  transition: all .2s ease-in-out;
   position: relative;
+  /*transition: all .2s ease-in-out; can be implemented once side-effects are eliminated*/
 }
 
 .grid-item:nth-of-type(2n) {
   float: right;
 }
 
-.grid-item .med {
-  width: 100%;
-  vertical-align: top;
-}
-
-.grid-item .feat {
+.grid-item .thumb {
   width: 100%;
   vertical-align: top;
 }
 
 /*.grid-item:hover {
  transform: scale(1.1);
-}*/
+}
+above to be implemented once side-effects are eliminated*/
 
 .view {
   position:absolute;
   top: 50%;
-  left: 50%;
+  left: calc(50% - 30px);
 }
 
 .button {
-    font-size: 14px;
-    /*margin-top: -5px;
-    padding: 5px 7px;*/
+  font-size: 18px;
+  background-color: #e51b24;
+  padding: 10px 20px 10px 20px;
 }
+
 a.button {
     border-radius: 3px 3px 3px 3px;
-    color: #FFFFFF;
+    color: #ffffff;
     cursor: pointer;
     display: inline-block;
-    font-family: "proxima-nova-1","proxima-nova-2",Helvetica,Arial,sans-serif;
-    font-weight: bold;
     line-height: 1;
     position: relative;
     text-align: center;
     text-decoration: none;
-    text-transform: uppercase;
 }
 
 .grid-item .view {
@@ -106,55 +157,9 @@ a.button {
  display: inline;
 }
 
-/*.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  transition: opacity 500ms;
-  visibility: hidden;
-  opacity: 0;
-  z-index: 999;
-  width: 100%;
-  height: 100%;
-}
-
-.overlay:target {
-  visibility: visible;
-  opacity: 1;
-}
-
-.popup {
-  margin: 70px auto;
-  padding: 10px;
-  background: #FFFFFF;
-  border-radius: 2px;
-  width: 50%;
-  position: relative;
-  transition: all 5s ease-in-out;
-}
-
-.popup .close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  transition: all 200ms;
-  font-size: 30px;
-  color: #636363;
-}
-
-.popup .imageDetail {
-  max-height: 100%;
-  overflow: auto;
-}*/
-
-
 .lightbox {
 	/** Default lightbox to hidden */
 	display: none;
-
 	/** Position and style */
 	position: fixed;
 	z-index: 999;
@@ -168,10 +173,20 @@ a.button {
 
 .lightbox img {
 	/** Pad the lightbox image */
-	max-width: 90%;
-	/*max-height: 80%;*/
-	margin-top: 2%;
-  overflow: auto;
+	/*max-width: 90%;*/
+	max-height: 70%;
+	margin: 2%;
+}
+
+.lightbox h2 {
+  position: relative;
+  font-weight: 400;
+  color: #ffffff;
+  margin:0px;
+}
+
+.lightbox .social {
+  margin-top: 0px;
 }
 
 .lightbox:target {
@@ -181,40 +196,6 @@ a.button {
 	/** Unhide lightbox **/
 	display: block;
 }
-
-/*.lightbox {
-position: fixed;
-top: -100%;
-width: 100%;
-background: rgba(0,0,0,.7);
-width: 100%;
-opacity: 0;
--webkit-transition: opacity .5s ease-in-out;
--moz-transition: opacity .5s ease-in-out;
--o-transition: opacity .5s ease-in-out;
-transition: opacity .5s ease-in-out;
-overflow: hidden;
-}
-
-/* Styles the lightbox image, centers it vertically and horizontally, adds the zoom-in transition and makes it responsive using a combination of margin and absolute positioning */
-
-/*.lightbox img {
-margin: auto;
-position: absolute;
-top: 0;
-left:0;
-right:0;
-bottom: 0;
-max-height: 0%;
-max-width: 0%;
-border: 3px solid white;
-box-shadow: 0px 0px 8px rgba(0,0,0,.3);
-box-sizing: border-box;
--webkit-transition: .5s ease-in-out;
--moz-transition: .5s ease-in-out;
--o-transition: .5s ease-in-out;
-transition: .5s ease-in-out;
-}*/
 
 /* Styles the close link, adds the slide down transition */
 
@@ -242,7 +223,7 @@ content: "";
 display: block;
 height: 30px;
 width: 1px;
-background: black;
+background: #000000;
 position: absolute;
 left: 26px;
 top:10px;
@@ -259,7 +240,7 @@ content: "";
 display: block;
 height: 30px;
 width: 1px;
-background: black;
+background: #000000;
 position: absolute;
 left: 26px;
 top:10px;
@@ -269,9 +250,48 @@ top:10px;
 transform:rotate(-45deg);
 }
 
-
-
-
 .lightbox:target a.lightbox-close {
 top: 0px;
+}
+
+.footer {
+  margin: 0 auto;
+  text-align: center;
+  background-color: #000000;
+  bottom: 0px;
+  padding: 20px;
+  color: #ffffff;
+}
+
+.footer-text {
+  display: inline-block;
+  height: 100%;
+  padding: 20px;
+  font-size: 22px;
+}
+
+.email {
+  width: 200px;
+  margin-right: 12px;
+}
+
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+  .grid-item {
+    width: 100%;
+  }
+
+  .grid-item:nth-child(13n+1) {
+    width: 100%;
+  }
+
+  .lightbox img {
+    margin-top:40%;
+  }
+}
+
+
 }
